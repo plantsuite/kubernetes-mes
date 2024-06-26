@@ -1,0 +1,7 @@
+namespace: plantsuite
+
+resources:
+  - ../../base
+  - deployment.yaml
+  - service.yaml
+  - virtualservice.yaml

@@ -1,5 +1,12 @@
 # PlantSuite MES
 
+Este repositório possui uma estrutura baseada em **Kustomize** e conjunto com uso de **Helm Charts**.
+
+Referências:
+    - https://kustomize.io/
+    - https://helm.sh/
+    - https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/
+
 ## Kind
 
 O **Kind** é um ferramenta para desenvolvimento e testes que roda clusters **Kubernetes** local usando containers Docker/Podman para a criação dos nodes. 
@@ -9,7 +16,7 @@ Informações e instruções de instalação: https://kind.sigs.k8s.io
 Após instalação, você pode criar um cluster com 3 nós executando o comando abaixo:
 
 ```console
-kind create cluster --config kind.yaml
+kind create cluster --config tests/kind-cluster.yaml
 ```
 
 ## Istio - Ambient Mode
@@ -28,7 +35,7 @@ kubectl -n istio-system create token kiali-service-account
 
 ## PlantSuite Container Registry 
 
-Nas pastas de serviços do PlantSuite, crie um arquivo com o nome de **plantsuite-acr.json** conforme exemplo abaixo:
+Informe o usuário e senha do **plantsuite.azurecr.io** no arquivo `/apps/base/assets/plantsuite-acr.json`.
 
 ```json
 {
