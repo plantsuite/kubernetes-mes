@@ -3,9 +3,9 @@
 Este repositório possui uma estrutura baseada em **Kustomize** e conjunto com uso de **Helm Charts**.
 
 Referências:
-    - https://kustomize.io/
-    - https://helm.sh/
-    - https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/
+- https://kustomize.io/
+- https://helm.sh/
+- https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/
 
 ## Kind
 
