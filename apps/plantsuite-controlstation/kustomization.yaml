@@ -1,0 +1,13 @@
+namespace: plantsuite
+
+resources:
+  - namespace.yaml
+  - deployment.yaml
+  - service.yaml
+  - virtualservice.yaml
+
+secretGenerator:
+  - name: plantsuite-acr
+    type: kubernetes.io/dockerconfigjson
+    files:
+      - .dockerconfigjson=plantsuite-acr.json

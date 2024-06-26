@@ -1,0 +1,12 @@
+namespace: vernemq
+
+resources:
+  - namespace.yaml
+
+helmCharts:
+  - name: vernemq
+    repo: https://vernemq.github.io/docker-vernemq
+    version: 2.0.1
+    releaseName: vernemq
+    namespace: vernemq
+    valuesFile: values.yaml

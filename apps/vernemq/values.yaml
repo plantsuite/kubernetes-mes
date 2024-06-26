@@ -1,0 +1,23 @@
+replicaCount: 3
+
+resources: 
+ requests:
+   cpu: 500m
+   memory: 512Mi
+ limits:
+   cpu: 1000m
+   memory: 1024Mi
+
+additionalEnv:
+  - name: DOCKER_VERNEMQ_ALLOW_REGISTER_DURING_NETSPLIT
+    value: "on"
+  - name: DOCKER_VERNEMQ_ALLOW_PUBLISH_DURING_NETSPLIT
+    value: "on"
+  - name: DOCKER_VERNEMQ_ALLOW_SUBSCRIBE_DURING_NETSPLIT
+    value: "on"
+  - name: DOCKER_VERNEMQ_ALLOW_UNSUBSCRIBE_DURING_NETSPLIT
+    value: "on"
+  - name: DOCKER_VERNEMQ_ALLOW_ANONYMOUS
+    value: "on"
+  - name: DOCKER_VERNEMQ_ACCEPT_EULA
+    value: "yes"   

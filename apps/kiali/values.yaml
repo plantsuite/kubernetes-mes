@@ -1,0 +1,31 @@
+# For what a Kiali CR spec can look like, see:
+# https://github.com/kiali/kiali-operator/blob/master/deploy/kiali/kiali_cr.yaml
+cr:
+  create: true
+  # If you elect to create a Kiali CR (--set cr.create=true)
+  # and the operator is watching all namespaces (--set watchNamespace="")
+  # then this is the namespace where the CR will be created (the default will be the operator namespace).
+  namespace: "istio-system"
+
+  spec:
+    external_services:
+      istio:
+        component_status:
+          components:
+            - app_label: "istio-ingress"
+              namespace: istio-ingress
+            - app_label: "istio-egress"
+              namespace: istio-egress
+      prometheus:
+        url: "http://kps-kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090"
+      grafana:
+        enabled: false
+        auth:
+          password: "admin"
+          username: "prom-operator"
+        in_cluster_url: "http://kps-grafana.monitoring.svc.cluster.local:3000"
+        url: "http://kps-grafana.monitoring.svc.cluster.local:3000"
+      tracing:
+        enabled: false
+      custom_dashboards:
+        enabled: false

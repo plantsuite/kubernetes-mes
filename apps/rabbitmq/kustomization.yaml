@@ -1,0 +1,5 @@
+resources:
+  - cluster-operator-v2.9.0.yaml
+  - namespace.yaml
+  - rabbitmq-cluster.yaml
+  - pod-disruption-budget.yaml
