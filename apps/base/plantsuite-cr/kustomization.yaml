@@ -1,5 +1,5 @@
 secretGenerator:
-  - name: plantsuite-acr
+  - name: plantsuite-cr
     type: kubernetes.io/dockerconfigjson
     files:
       - .dockerconfigjson=config.json

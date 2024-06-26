@@ -88,6 +88,6 @@ spec:
             successThreshold: 1
             failureThreshold: 30
       imagePullSecrets:
-        - name: plantsuite-acr
+        - name: plantsuite-cr
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
