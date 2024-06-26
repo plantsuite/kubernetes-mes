@@ -35,7 +35,7 @@ kubectl -n istio-system create token kiali-service-account
 
 ## PlantSuite Container Registry 
 
-Informe o usuário e senha do **plantsuite.azurecr.io** no arquivo `/apps/base/assets/plantsuite-acr.json`.
+Informe o usuário e senha do **plantsuite.azurecr.io** no arquivo `/apps/base/plantsuite-acr/config.json`.
 
 ```json
 {
