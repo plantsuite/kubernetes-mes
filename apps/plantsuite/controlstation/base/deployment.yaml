@@ -6,28 +6,21 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: plantsuite-controlstation
+      app.kubernetes.io/name: plantsuite-controlstation
   template:
-    metadata:
-      labels:
-        app: plantsuite-controlstation
-        app.kubernetes.io/name: plantsuite-controlstation
-        app.kubernetes.io/version: 0.1.0-alpha.116
-        version: 0.1.0-alpha.116
     spec:
       containers:
         - name: plantsuite-controlstation
-          image: plantsuite.azurecr.io/plantsuite-controlstations:0.1.0-alpha.116
+          image: plantsuite.azurecr.io/plantsuite-controlstations:latest
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
               containerPort: 80
               protocol: TCP
+          envFrom:
+            - secretRef:
+                name: env-secrets
           env:
-            - name: ASPNETCORE_ENVIRONMENT
-              value: Development
-            - name: APP_VERSION
-              value: 0.1.0-alpha.116
             - name: NODE_NAME
               valueFrom:
                 fieldRef:
@@ -87,6 +80,18 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 30
+          volumeMounts:
+            - name: appsettings
+              readOnly: true
+              mountPath: /app/appsettings.json
+              subPath: appsettings.json
+      volumes:
+        - name: appsettings
+          configMap:
+            name: appsettings
+            items:
+              - key: appsettings.json
+                path: appsettings.json
       imagePullSecrets:
         - name: plantsuite-cr
       restartPolicy: Always

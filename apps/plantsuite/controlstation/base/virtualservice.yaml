@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: plantsuite-controlstation
+  name: controlstation
 spec:
   hosts:
     - cstation.plantsuite.mes
@@ -15,4 +15,4 @@ spec:
         - destination:
             port:
               number: 80
-            host: plantsuite-controlstation
+            host: controlstation

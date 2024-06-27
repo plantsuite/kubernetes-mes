@@ -1,3 +1,8 @@
 resources:
   - ../../base/plantsuite-cr
   - namespace.yaml
+
+secretGenerator:
+  - name: env-secrets
+    envs:
+      - .env

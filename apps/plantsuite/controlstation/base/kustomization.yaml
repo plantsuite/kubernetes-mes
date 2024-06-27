@@ -1,7 +1,20 @@
 namespace: plantsuite
 
+commonLabels:
+  app.kubernetes.io/name: plantsuite-controlstation
+  app.kubernetes.io/version: 0.1.0-alpha.118
+
+images:
+  - name: plantsuite.azurecr.io/plantsuite-controlstations
+    newTag: 0.1.0-alpha.118
+
 resources:
   - ../../base
   - deployment.yaml
   - service.yaml
   - virtualservice.yaml
+
+configMapGenerator:
+  - name: appsettings
+    files:
+      - appsettings.json
