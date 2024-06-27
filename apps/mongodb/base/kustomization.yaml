@@ -1,0 +1,16 @@
+namespace: mongodb
+
+resources:
+  - namespace.yaml
+  - mongodb-replicaset.yaml
+  - secret-admin-password.yaml
+
+helmCharts:
+  - name: community-operator
+    repo: https://mongodb.github.io/helm-charts
+    version: 0.10.0
+    releaseName: community-operator
+    namespace: mongodb
+    valuesInline:
+      community-operator-crds:
+        enabled: true
