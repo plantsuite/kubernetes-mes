@@ -1,16 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: plantsuite-controlstation
+  name: controlstation
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app.kubernetes.io/name: plantsuite-controlstation
   template:
     spec:
       containers:
-        - name: plantsuite-controlstation
+        - name: controlstation
           image: plantsuite.azurecr.io/plantsuite-controlstations:latest
           imagePullPolicy: IfNotPresent
           ports:
@@ -19,7 +16,7 @@ spec:
               protocol: TCP
           envFrom:
             - secretRef:
-                name: env-secrets
+                name: plantsuite-env
           env:
             - name: NODE_NAME
               valueFrom:
@@ -88,7 +85,7 @@ spec:
       volumes:
         - name: appsettings
           configMap:
-            name: appsettings
+            name: controlstation-appsettings
             items:
               - key: appsettings.json
                 path: appsettings.json

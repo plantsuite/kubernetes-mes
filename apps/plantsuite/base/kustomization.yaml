@@ -1,8 +1,13 @@
+namespace: plantsuite
+
 resources:
   - ../../base/plantsuite-cr
   - namespace.yaml
 
 secretGenerator:
-  - name: env-secrets
+  - name: plantsuite-env
     envs:
       - .env
+      
+generatorOptions:
+  disableNameSuffixHash: true

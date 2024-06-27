@@ -3,3 +3,6 @@ secretGenerator:
     type: kubernetes.io/dockerconfigjson
     files:
       - .dockerconfigjson=config.json
+
+generatorOptions:
+  disableNameSuffixHash: true

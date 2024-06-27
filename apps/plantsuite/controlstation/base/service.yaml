@@ -4,8 +4,6 @@ metadata:
   name: controlstation
 spec:
   type: ClusterIP
-  selector:
-    app.kubernetes.io/name: plantsuite-controlstation
   ports:
     - name: http
       protocol: TCP

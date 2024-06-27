@@ -4,7 +4,7 @@ metadata:
   name: controlstation
 spec:
   hosts:
-    - cstation.plantsuite.mes
+    - controlstation.plantsuite.svc.cluster.local
   gateways:
     - istio-ingress/gateway
   http:
