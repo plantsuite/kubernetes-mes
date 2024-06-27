@@ -1,0 +1,6 @@
+namespace: rabbitmq
+
+resources:
+  - namespace.yaml
+  - rabbitmq-cluster.yaml
+  - pod-disruption-budget.yaml
