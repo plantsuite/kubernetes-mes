@@ -1,6 +1,6 @@
 # PlantSuite MES
 
-Este repositório possui uma estrutura baseada em **Kustomize** e conjunto com uso de **Helm Charts**.
+Este repositório possui uma estrutura baseada em **Kustomize** em conjunto com uso de **Helm Charts**.
 
 Referências:
 - https://kustomize.io/
