@@ -17,6 +17,8 @@ spec:
           envFrom:
             - secretRef:
                 name: plantsuite-env
+            - secretRef:
+                name: account-env
           env:
             - name: NODE_NAME
               valueFrom:
