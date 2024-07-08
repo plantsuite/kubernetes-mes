@@ -1,0 +1,24 @@
+namespace: plantsuite
+
+labels:
+  - pairs:
+      app.kubernetes.io/name: mes
+      app.kubernetes.io/part-of: plantsuite
+    includeSelectors: true
+  - pairs:
+      app.kubernetes.io/version: 0.1.0-alpha.11
+    includeTemplates: true
+
+images:
+  - name: plantsuite.azurecr.io/plantsuite-mes
+    newTag: 0.1.0-alpha.11
+
+resources:
+  - deployment.yaml
+  - service.yaml
+  - virtualservice.yaml
+
+configMapGenerator:
+  - name: mes-appsettings
+    files:
+      - appsettings.json
