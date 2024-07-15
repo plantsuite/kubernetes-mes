@@ -6,12 +6,14 @@ labels:
       app.kubernetes.io/part-of: plantsuite
     includeSelectors: true
   - pairs:
-      app.kubernetes.io/version: 1.0.1-beta.16
+      app.kubernetes.io/version: 1.0.1-beta.28
     includeTemplates: true
 
 images:
   - name: plantsuite.azurecr.io/plantsuite-gateway
-    newTag: 1.0.1-beta.16
+    newTag: 1.0.1-beta.28
+  - name: plantsuite.azurecr.io/plantsuite-gateway-ui
+    newTag: 1.0.1-beta.28
 
 resources:
   - deployment.yaml

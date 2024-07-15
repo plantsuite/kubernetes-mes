@@ -82,6 +82,81 @@ spec:
               readOnly: true
               mountPath: /app/appsettings.json
               subPath: appsettings.json
+        - name: gateway-ui
+          image: plantsuite.azurecr.io/plantsuite-gateway-ui:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http-ui
+              containerPort: 8080
+              protocol: TCP
+          envFrom:
+            - secretRef:
+                name: plantsuite-env
+          env:
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: spec.nodeName
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: status.podIP
+            - name: POD_SERVICE_ACCOUNT
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: spec.serviceAccountName
+          resources:
+            limits:
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+              scheme: HTTP
+            timeoutSeconds: 3
+            periodSeconds: 30
+            successThreshold: 1
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+              scheme: HTTP
+            timeoutSeconds: 3
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          startupProbe:
+            httpGet:
+              path: /health
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 10
+            timeoutSeconds: 3
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 30
+          volumeMounts:
+            - name: appsettings-ui
+              readOnly: true
+              mountPath: /usr/share/nginx/html/configs/app-config.prod.json
+              subPath: appsettings-ui.json
       volumes:
         - name: appsettings
           configMap:
@@ -89,6 +164,12 @@ spec:
             items:
               - key: appsettings.json
                 path: appsettings.json
+        - name: appsettings-ui
+          configMap:
+            name: gateway-appsettings-ui
+            items:
+              - key: appsettings-ui.json
+                path: appsettings-ui.json                
       imagePullSecrets:
         - name: plantsuite-cr
       restartPolicy: Always
