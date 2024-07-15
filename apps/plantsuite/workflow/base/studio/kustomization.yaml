@@ -1,0 +1,24 @@
+namespace: plantsuite
+
+labels:
+  - pairs:
+      app.kubernetes.io/name: workflows-studio
+      app.kubernetes.io/part-of: plantsuite
+    includeSelectors: true
+  - pairs:
+      app.kubernetes.io/version: 0.1.0-alpha.23
+    includeTemplates: true
+
+images:
+  - name: plantsuite.azurecr.io/plantsuite-workflows-studio
+    newTag: 0.1.0-alpha.23
+
+resources:
+  - deployment.yaml
+  - service.yaml
+  - virtualservice.yaml
+
+configMapGenerator:
+  - name: workflows-studio-appsettings
+    files:
+      - appsettings.json

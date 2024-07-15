@@ -1,0 +1,5 @@
+namespace: plantsuite
+
+resources:
+  - server
+  - studio
