@@ -144,6 +144,12 @@ kubectl kustomize apps/plantsuite/account/base/ | kubectl apply -f -
 kubectl kustomize apps/plantsuite/controlstation/base/ | kubectl apply -f -
 ```
 
+### PlantSuite Gateway
+
+```console
+kubectl kustomize apps/plantsuite/gateway/base/ | kubectl apply -f -
+```
+
 ### PlantSuite MES
 
 ```console
@@ -156,8 +162,8 @@ kubectl kustomize apps/plantsuite/mes/base/ | kubectl apply -f -
 kubectl kustomize apps/plantsuite/production/base/ | kubectl apply -f -
 ```
 
-### PlantSuite Production
+### PlantSuite Workflows
 
 ```console
-kubectl kustomize apps/plantsuite/production/base/ | kubectl apply -f -
+kubectl kustomize apps/plantsuite/workflows/base/ | kubectl apply -f -
 ```
