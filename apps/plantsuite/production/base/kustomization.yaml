@@ -6,12 +6,12 @@ labels:
       app.kubernetes.io/part-of: plantsuite
     includeSelectors: true
   - pairs:
-      app.kubernetes.io/version: 1.1.3-beta.94
+      app.kubernetes.io/version: 1.1.3-beta.171
     includeTemplates: true
 
 images:
   - name: plantsuite.azurecr.io/plantsuite-production
-    newTag: 1.1.3-beta.94
+    newTag: 1.1.3-beta.171
 
 resources:
   - deployment.yaml
