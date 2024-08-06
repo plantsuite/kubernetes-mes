@@ -80,7 +80,7 @@ spec:
           volumeMounts:
             - name: appsettings
               readOnly: true
-              mountPath: /app/appsettings.json
+              mountPath: /usr/share/nginx/html/appsettings.json
               subPath: appsettings.json
       volumes:
         - name: appsettings
