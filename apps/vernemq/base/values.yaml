@@ -21,3 +21,29 @@ additionalEnv:
     value: "on"
   - name: DOCKER_VERNEMQ_ACCEPT_EULA
     value: "yes"   
+
+service:  
+  enabled: true
+  type: ClusterIP
+  mqtt:
+    enabled: true
+    port: 1883
+    nodePort: 1883
+  mqtts:
+    enabled: false
+    port: 8883
+    nodePort: 8883
+  ws:
+    enabled: true
+    port: 8080
+    nodePort: 8080
+  wss:
+    enabled: false
+    port: 8443
+    nodePort: 8443
+  api:
+    enabled: false
+    type: ClusterIP
+    port: 8888
+    nodePort: 38888
+    annotations: {}
