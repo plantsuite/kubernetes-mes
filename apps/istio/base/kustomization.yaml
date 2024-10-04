@@ -1,27 +1,28 @@
 resources:
   - namespaces.yaml
+  - gateway-api-standard-install.yaml
   - gateway-ingress.yaml
   - gateway-egress.yaml
 
 helmCharts:
   - name: base
     repo: https://istio-release.storage.googleapis.com/charts
-    version: 1.22.1
+    version: 1.23.2
     releaseName: istio-base
     namespace: istio-system
     includeCRDs: true
 
-  - name: cni
+  - name: istiod
     repo: https://istio-release.storage.googleapis.com/charts
-    version: 1.22.1
+    version: 1.23.2
     releaseName: istio-cni
     namespace: istio-system
     valuesInline:
       profile: ambient
 
-  - name: istiod
+  - name: cni
     repo: https://istio-release.storage.googleapis.com/charts
-    version: 1.22.1
+    version: 1.23.2
     releaseName: istio-cni
     namespace: istio-system
     valuesInline:
@@ -29,7 +30,7 @@ helmCharts:
 
   - name: ztunnel
     repo: https://istio-release.storage.googleapis.com/charts
-    version: 1.22.1
+    version: 1.23.2
     releaseName: ztunnel
     namespace: istio-system
 
@@ -37,13 +38,13 @@ helmCharts:
   # https://github.com/istio/istio/issues/35789
   - name: gateway
     repo: https://istio-release.storage.googleapis.com/charts
-    version: 1.22.1
+    version: 1.23.2
     releaseName: istio-ingress
     namespace: istio-ingress
 
   - name: gateway
     repo: https://istio-release.storage.googleapis.com/charts
-    version: 1.22.1
+    version: 1.23.2
     releaseName: istio-egress
     namespace: istio-egress
     valuesInline:
