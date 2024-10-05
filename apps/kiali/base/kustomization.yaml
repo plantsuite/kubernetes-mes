@@ -1,11 +1,11 @@
 resources:
   - namespace.yaml
-  - virtualservice.yaml
+#  - virtualservice.yaml
 
 helmCharts:
   - name: kiali-operator
     repo: https://kiali.org/helm-charts
-    version: 1.86.0
+    version: 1.88.0
     releaseName: kiali-operator
     namespace: kiali-operator
     includeCRDs: true

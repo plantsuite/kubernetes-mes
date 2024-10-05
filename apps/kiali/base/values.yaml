@@ -8,6 +8,8 @@ cr:
   namespace: "istio-system"
 
   spec:
+    auth:
+      strategy: "anonymous"
     external_services:
       istio:
         component_status:
