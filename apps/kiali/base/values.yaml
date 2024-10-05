@@ -10,14 +10,15 @@ cr:
   spec:
     auth:
       strategy: "anonymous"
+    istio_labels:
+      egress_gateway_label: "istio=egress"
+      ingress_gateway_label: "istio=ingress"
     external_services:
       istio:
         component_status:
-          components:
-            - app_label: "istio-ingress"
-              namespace: istio-ingress
-            - app_label: "istio-egress"
-              namespace: istio-egress
+          enabled: true
+        egress_gateway_namespace: "istio-egress"
+        ingress_gateway_namespace: "istio-ingress"
       prometheus:
         url: "http://kps-kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090"
       grafana:

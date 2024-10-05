@@ -1,6 +1,6 @@
 resources:
   - namespace.yaml
-#  - virtualservice.yaml
+  - virtualservice.yaml
 
 helmCharts:
   - name: kiali-operator
