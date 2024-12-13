@@ -18,9 +18,17 @@ additionalEnv:
   - name: DOCKER_VERNEMQ_ALLOW_UNSUBSCRIBE_DURING_NETSPLIT
     value: "on"
   - name: DOCKER_VERNEMQ_ALLOW_ANONYMOUS
-    value: "on"
+    value: "off"
   - name: DOCKER_VERNEMQ_ACCEPT_EULA
-    value: "yes"   
+    value: "yes"
+  - name: DOCKER_VERNEMQ_PLUGINS__VMQ_PASSWD
+    value: "on"
+  - name: DOCKER_VERNEMQ_VMQ_PASSWD__PASSWORD_FILE
+    value: "/etc/vernemq/passwords"
+
+envFrom:
+  - secretRef:
+      name: vernemq-users
 
 service:  
   enabled: true

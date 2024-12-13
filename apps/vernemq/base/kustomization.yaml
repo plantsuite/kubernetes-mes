@@ -10,3 +10,11 @@ helmCharts:
     releaseName: vernemq
     namespace: vernemq
     valuesFile: values.yaml
+
+secretGenerator:
+  - name: vernemq-users
+    envs:
+      - .env
+      
+generatorOptions:
+  disableNameSuffixHash: true    
